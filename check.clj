@@ -18,6 +18,12 @@
     ";"
     ":"))
 
+(defn get-cp-quote []
+  (if (.equals (util/get-my-platform) "windows")
+    "\""
+    "")
+  )
+
 (defn configure-classpath [extra]
   (let [cp (*check-configuration* :classpath)]
     (if (= nil cp)
@@ -30,8 +36,8 @@
 
 (defn get-classpath [extra]
   (if (= nil (*check-configuration* :out))
-    (list  "-classpath" (str "\"" (configure-classpath extra)  "\""))
-    (list  "-classpath" (str "\"" (configure-classpath extra) (get-classpath-sep) (*check-configuration* :out) "\""))))
+    (list  "-classpath" (str (get-cp-quote) (configure-classpath extra)  (get-cp-quote)))
+    (list  "-classpath" (str (get-cp-quote) (configure-classpath extra) (get-classpath-sep) (*check-configuration* :out) (get-cp-quote)))))
 
 
 (defn get-extra-args []

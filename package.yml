@@ -1,5 +1,5 @@
 name       : checklt          # name of the package
-version    : 0.0.2       # version of the package
+version    : 0.0.3       # version of the package
 kind       : tool                     # one of tool or spec(s)
 description: CheckLT is a program verification tool for Java which can help you use taint tracking to find defects in your software.
 
